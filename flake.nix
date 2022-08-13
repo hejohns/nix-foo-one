@@ -19,10 +19,15 @@
               version = "0.0";
               src = self; # literally sets $src to tmp dir that is a clone of this dir (check w/ nix develop)
               strictDeps = true;
-              buildInputs = [
+              nativeBuildInputs = [ # build time deps or something...
                 nixpkgs.legacyPackages.${system}.gcc
                 nixpkgs.legacyPackages.${system}.clang
                 nixpkgs.legacyPackages.${system}.SDL
+                # I couldn't follow the manual
+              ];
+              buildInputs = [ # run time deps or something...
+                # ditto
+                nixpkgs.legacyPackages.${system}.perl
               ];
               postUnpack = ''
                 echo 'postUnpack ed!'
