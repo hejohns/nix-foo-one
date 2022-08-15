@@ -20,9 +20,9 @@
               src = self; # literally sets $src to tmp dir that is a clone of this dir (check w/ nix develop)
               strictDeps = true;
               nativeBuildInputs = [ # build time deps or something...
-                nixpkgs.legacyPackages.${system}.gcc
-                nixpkgs.legacyPackages.${system}.clang
-                nixpkgs.legacyPackages.${system}.SDL
+                pkgs.gcc
+                pkgs.clang
+                pkgs.SDL
                 # I couldn't follow the manual
               ];
               buildInputs = [ # run time deps or something...
